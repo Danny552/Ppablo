@@ -11,6 +11,9 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="stylec.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
 
 <body>
@@ -20,9 +23,9 @@
         <span class="name-logo">
           <img src="assets/logo.jpeg" alt="Logo">
         </span>
-        <span>Pedro Pablo Cárdenas Alzate</span>
+        <span>Pedro Pablo Cárdenas Alzate, Ph.D.</span>
       </h1>
-      <p class="subtitle">Docente · Investigador · Universidad Tecnológica de Pereira</p>
+      <p class="subtitle">Profesor · Investigador · Universidad Tecnológica de Pereira</p>
     </div>
     <button class="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false" data-sidebar-toggle>
       Menu
@@ -33,12 +36,20 @@
     <main class="main-content">
       <section class="info-section">
         <h2>Investigación</h2>
-        <p>Lineas de trabajo, proyectos activos y colaboraciones.</p>
-        <p><a href="gednol.html">Conoce el grupo GEDNOL</a></p>
+        <p>Resumen de las investigaciones mas importantes  <a href="gednol.html" class="cta-button">Conoce al grupo GEDNOL →</a></p>
       </section>
 
       <section class="info-section">
-        <h2>Proyectos recientes</h2>
+        <h2>Proyectos destacados</h2>
+        <ol>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/2441" class="cta-button" target="_blank">AÑO SABATICO. TOPOGEBRA: CONSTRUCCIONES DINÁMICAS TOPOLÓGICAS MEDIADAS POR GEOGEBRA.→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/1364" class="cta-button" target="_blank">APROXIMACIÓN DE SOLUCIONES A PROBLEMAS NO LINEALES POR EL MÉTODO DE TRANSFORMACIÓN DIFERENCIAL→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/1100" class="cta-button" target="_blank">MODELACIÓN MATEMÁTICA EN LA VALUACIÓN DE OPCIONES SOBRE ACCIONES EN COLOMBIA→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/1796" class="cta-button" target="_blank">SOLUCIONES APROXIMADAS A PROBLEMAS NO LINEALES POR EL MÉTODO DE DESCOMPOSICIÓN DE ADOMIAN.→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/2853" class="cta-button" target="_blank">ANÁLISIS DE ESTABILIDAD PARA SISTEMAS DE ECUACIONES DIFERENCIALES NO LINEALES DE ORDEN FRACCIONARIO APLICADO A LOS MODELOS BIOLÓGICOS DE HODGKIN-HUXLEY Y LOTKA-VOLTERRA→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/941" class="cta-button" target="_blank">TEORÍA CATEGÓRICA DEL DESCENSO EN GEOMETRÍA ALGEBRÁICA→</a></li>
+          <li><a href="https://vicerrectorias.utp.edu.co/viie/detallesproyecto/2212" class="cta-button" target="_blank">SOLUCIONES APROXIMADAS A PROBLEMAS NO LINEALES POR EL MÉTODO DE APROXIMACIÓN DE PADÉ→</a></li>
+        </ol>
       </section>
     </main>
 
@@ -52,6 +63,7 @@
           <li><a href="articles.html">Artículos</a></li>
           <li><a href="books.html">Libros</a></li>
           <li><a href="teaching.html">Docencia</a></li>
+          <li><a href="hobbies.html">Hobbies y más</a></li>
         </ul>
       </nav>
 
@@ -64,9 +76,31 @@
         <h3>Contacto</h3>
         <p>
           Correo: ppablo@utp.edu.co<br />
-          Oficina: Edificio A · Piso 2<br />
-          Telefono: +57 300 000 0000
+          Oficina: Edificio 1 - 1B-113 <br />
+          Departamento de Matemáticas <br />
+          Universidad Tecnológica de Pereira <br />
         </p>
+        <p>Redes sociales:</p>
+          <div class="social-icons">
+            <a href="https://x.com/pcardenasalzate" target="_blank" rel="noopener noreferrer">
+              <img src="assets/twitter.png" alt="X" width="48" height="48">
+            </a>
+
+            <a href="https://www.instagram.com/pepa0531" target="_blank" rel="noopener noreferrer">
+              <img src="assets/instagramb.png" alt="Instagram" width="48" height="48">
+            </a>
+
+            <a href="https://www.tiktok.com/@pepa0531" target="_blank" rel="noopener noreferrer">
+              <img src="assets/tiktokb.jpg" alt="TikTok" width="48" height="48">
+            </a>
+          </div>
+
+      <section class="sidebar-widget">
+        <h3>Vistas</h3>
+        <div class="view-counter">
+          <div class="counter-number" id="view-count">—</div>
+          <p>visitantes</p>
+        </div>
       </section>
     </aside>
   </div>
@@ -74,28 +108,22 @@
   <div class="sidebar-scrim" data-scrim aria-hidden="true"></div>
 
   <footer class="site-footer">
-    <p>©2026 Daniel Alejandro Henao, Miguel Angel Arias Ochoa</p>
+    <p>© 2026 Pedro Pablo Cárdenas Alzate</p>
+    <p>Designed and developed by <strong>Miguel Ángel Arias</strong> & <strong>Daniel Alejandro Henao</strong></p>
   </footer>
 
+  <script src= "firebase.js"></script>
   <script>
-    const toggleButton = document.querySelector("[data-sidebar-toggle]");
-    const scrim = document.querySelector("[data-scrim]");
-    const body = document.body;
-
-    const setSidebarOpen = (open) => {
-      body.dataset.sidebarOpen = open ? "true" : "false";
-      toggleButton.setAttribute("aria-expanded", String(open));
-    };
-
-    toggleButton.addEventListener("click", () => {
-      const isOpen = body.dataset.sidebarOpen === "true";
-      setSidebarOpen(!isOpen);
+    document.addEventListener('contextmenu', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
     });
-
-    scrim.addEventListener("click", () => setSidebarOpen(false));
-
-    document.querySelectorAll(".side-nav a").forEach((link) => {
-      link.addEventListener("click", () => setSidebarOpen(false));
+    
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
     });
   </script>
 </body>

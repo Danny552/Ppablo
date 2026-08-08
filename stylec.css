@@ -1,16 +1,132 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: 'Courier Prime', 'Courier New', monospace;
   letter-spacing: 0.01em;
 }
+.sparkle-text-wrapper {
+  display: table;        /* Se ajusta al ancho del h4 como un guante */
+  margin: 2rem auto;     /* El 'auto' lo centra horizontalmente sin afectar a otros */
+  position: relative;
+  padding: 1.5rem 3rem;  /* Espacio para las estrellas */
+  text-align: center;    /* Centra el h4 dentro de este cuadro */
+}
+
+h4 {
+  font-family: 'Allura', cursive;
+  font-size: clamp(1.5rem, 1.5vw, 2.25rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  transform: scaleX(0.9);
+  display: block;        /* Ocupa el ancho del contenedor 'table' */
+  margin: 0;
+  text-shadow: 0 0 10px rgba(62, 192, 239, 0.8);
+}
+
+/* CONFIGURACIÓN MAESTRA DE ESTRELLAS */
+.sparkle-text-wrapper::before,
+.sparkle-text-wrapper::after,
+.extra-stars-1::before,
+.extra-stars-1::after,
+.extra-stars-2::before,
+.extra-stars-2::after,
+.extra-stars-3::before,
+.extra-stars-3::after {
+  content: "✦";
+  position: absolute;
+  color: #FFF;
+  text-shadow: 0 0 10px #FFF, 0 0 20px var(--accent);
+  opacity: 0;
+  animation: sparkle-float 4s infinite;
+}
+
+/* --- DISTRIBUCIÓN MANUAL --- */
+
+/* Estrellas en las 4 esquinas extremas */
+.sparkle-text-wrapper::before { top: -5px; left: 0; font-size: 1.2rem; animation-delay: 0s; }
+.sparkle-text-wrapper::after { bottom: -5px; right: 0; font-size: 1rem; animation-delay: 1.2s; }
+
+/* Estrellas en la parte superior (izquierda y derecha) */
+.extra-stars-1::before { top: -10px; left: 25%; font-size: 0.7rem; animation-delay: 0.5s; }
+.extra-stars-1::after { top: -10px; left: 75%; font-size: 0.8rem; animation-delay: 1.8s; }
+
+/* Estrellas en la parte inferior (izquierda y derecha) */
+.extra-stars-2::before { bottom: -8px; left: 35%; font-size: 0.6rem; animation-delay: 2.2s; }
+.extra-stars-2::after { bottom: -8px; left: 65%; font-size: 0.9rem; animation-delay: 0.8s; }
+
+/* Estrellas en los laterales (centradas verticalmente) */
+.extra-stars-3::before { top: 40%; left: -15px; font-size: 0.8rem; animation-delay: 3s; }
+.extra-stars-3::after { top: 60%; right: -15px; font-size: 0.7rem; animation-delay: 1.5s; }
+
+/* Estrellas pegadas al texto (para dar variedad) */
+h4::before { top: 5px; right: 15%; font-size: 0.5rem; animation-delay: 2.5s; }
+h4::after { bottom: 5px; left: 10%; font-size: 0.5rem; animation-delay: 3.5s; }
+
+/* ANIMACIÓN */
+@keyframes sparkle-float {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.3) translateY(0); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1) translateY(-5px); 
+  }
+}
+#pdf-container {
+  background-color: rgba(10, 22, 36, 0.75);
+  padding: 20px 0;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#toolbar {
+  margin-bottom: 15px;
+  color: white;
+}
+
+#pdf-viewer {
+  position: relative; /* Anchor for the layers */
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#pdf-viewer .textLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.2; /* Slight visibility helps debugging, set to 0 if desired */
+  line-height: 1.0;
+}
+
+#pdf-viewer .annotationLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#pdf-viewer .annotationLayer a {
+  display: block;
+  position: absolute;
+  pointer-events: all;
+}
 
 :root {
+  
   color-scheme: dark;
 
   --bg-main: #050B14;
@@ -44,18 +160,32 @@ html, body {
 }
 
 /* subtle tech grid */
+/* Circuit board pattern with traces and nodes */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-
+  
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    /* Circuit traces - horizontal */
+    linear-gradient(90deg, transparent 49%, rgba(62,192,239,0.08) 49%, rgba(62,192,239,0.08) 51%, transparent 51%),
+    /* Circuit traces - vertical */
+    linear-gradient(transparent 49%, rgba(62,192,239,0.08) 49%, rgba(62,192,239,0.08) 51%, transparent 51%),
+    /* Node points */
+    radial-gradient(circle at 50% 50%, rgba(62,192,239,0.3) 0%, rgba(62,192,239,0.3) 15%, transparent 16%),
+    /* Offset traces for complexity */
+    linear-gradient(120deg, transparent 48%, rgba(62,192,239,0.05) 48%, rgba(62,192,239,0.05) 52%, transparent 52%),
+    linear-gradient(60deg, transparent 48%, rgba(62,192,239,0.05) 48%, rgba(62,192,239,0.05) 52%, transparent 52%);
+  
+  background-size: 80px 80px, 80px 80px, 80px 80px, 120px 120px, 120px 120px;
+  opacity: 0.5;
+  animation: circuit-pulse 8s ease-in-out infinite;
+}
 
-  background-size: 120px 120px;
-  opacity: 0.3;
+@keyframes circuit-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
 }
 
 img {
@@ -84,7 +214,9 @@ a:focus-visible {
   padding: 2.5rem 6vw 1.5rem;
 }
 
+
 .header-text h1 {
+    
   font-size: clamp(2rem, 3vw, 3rem);
   letter-spacing: 0.02em;
   display: flex;
@@ -93,22 +225,34 @@ a:focus-visible {
 
   color: var(--accent);
   text-shadow: 0 0 6px rgba(62,192,239,0.5);
+  position: relative;
+  animation: glitch-text 5s infinite;
 }
+
+@keyframes glitch-text {
+  0%, 90%, 100% { text-shadow: 0 0 6px rgba(62,192,239,0.5); }
+  92% { text-shadow: -2px 0 #00FF88, 2px 0 #FF00FF; }
+  94% { text-shadow: 2px 0 #00FF88, -2px 0 #FF00FF; }
+  96% { text-shadow: 0 0 6px rgba(62,192,239,0.5); }
+}
+
 
 .name-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 64px;
   height: 64px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(62,192,239,0.1);
-  box-shadow: var(--glow-soft);
-  overflow: hidden;
-  flex-shrink: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, rgba(62,192,239,0.2), rgba(62,192,239,0.05));
+  border: none;
+  box-shadow: 
+    0 0 15px rgba(62,192,239,0.5),
+    inset 0 0 20px rgba(62,192,239,0.1);
+  animation: node-glow 3s ease-in-out infinite;
 }
 
+@keyframes node-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(62,192,239,0.5), inset 0 0 20px rgba(62,192,239,0.1); }
+  50% { box-shadow: 0 0 25px rgba(62,192,239,0.8), inset 0 0 30px rgba(62,192,239,0.2); }
+}
 .name-logo img {
   width: 100%;
   height: 100%;
@@ -132,6 +276,23 @@ a:focus-visible {
   letter-spacing: 0.03em;
   cursor: pointer;
   box-shadow: var(--shadow);
+}
+
+.social-icons {
+  display: flex;          /* Enables flexbox */
+  justify-content: center; /* Centers icons horizontally */
+  gap: 15px;              /* Adds clean spacing between icons without messy margins */
+  margin-top: 10px;       /* Gives the icons some breathing room from the text above */
+}
+
+.social-icons img {
+  border-radius: 12px;    /* Rounded borders for social media icons */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);  /* Slight zoom on hover */
+  box-shadow: 0 4px 12px rgba(62, 192, 239, 0.3); /* Glow effect on hover */
 }
 
 /* ================= LAYOUT ================= */
@@ -163,6 +324,64 @@ a:focus-visible {
 
   transition: 0.25s ease;
 }
+.main-content section {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px; /* More angular for circuit feel */
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  transition: 0.25s ease;
+}
+
+/* Circuit corner nodes */
+.main-content section::before,
+.main-content section::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent);
+  background: var(--bg-main);
+  box-shadow: 0 0 10px rgba(62,192,239,0.6);
+}
+
+.main-content section::before {
+  top: -6px;
+  left: -6px;
+  border-radius: 50%;
+}
+
+.main-content section::after {
+  bottom: -6px;
+  right: -6px;
+  border-radius: 50%;
+}
+
+/* Data flow lines */
+.main-content section + section::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 4px,
+    rgba(62,192,239,0.8) 4px,
+    rgba(62,192,239,0.8) 8px
+  );
+  box-shadow: 0 0 8px rgba(62,192,239,0.5);
+  animation: data-flow 2s linear infinite;
+}
+
+@keyframes data-flow {
+  0% { background-position: 0 0; }
+  100% { background-position: 16px 0; }
+}
 
 .main-content section:hover {
   border-color: var(--accent);
@@ -192,17 +411,25 @@ a:focus-visible {
   box-shadow: var(--glow-soft);
 }
 
+
+
 /* ================= TEXT ================= */
 
 .main-content h2 {
   font-size: clamp(1.5rem, 2vw, 2.1rem);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 
   color: var(--accent);
   text-shadow: 0 0 6px rgba(62,192,239,0.4);
 }
 
+.main-content section p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
 /* ================= INTRO ================= */
+
 
 .intro-body {
   display: grid;
@@ -216,8 +443,173 @@ a:focus-visible {
   border: 1px solid var(--border);
 }
 
+/* Estilos específicos para GEDNOL */
+.gednol-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.gednol-intro img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.gednol-intro .intro-text {
+  max-width: 600px;
+}
+
+.gednol-tagline {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ================= MISIÓN Y VISIÓN ================= */
+
+.mission-vision-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.mission-card,
+.vision-card {
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(62, 192, 239, 0.08);
+  border: 2px solid var(--accent);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--glow-soft);
+  transition: 0.3s ease;
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  background: rgba(62, 192, 239, 0.15);
+  box-shadow: 0 0 20px rgba(62, 192, 239, 0.6);
+  transform: translateY(-4px);
+}
+
+.mission-card h3,
+.vision-card h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 6px rgba(62, 192, 239, 0.4);
+}
+
+.mission-card p,
+.vision-card p {
+  line-height: 1.7;
+}
+
 .intro-text p {
   margin-bottom: 0.8rem;
+}
+
+.cta-button {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: 0.25s ease;
+}
+
+.thesis-subtitle {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.75rem;
+}
+
+.articles-list {
+  margin-top: 0.75rem;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.articles-list li {
+  padding: 1.25rem 1.35rem;
+  border-radius: 16px;
+  background: rgba(62, 192, 239, 0.08);
+  border: 2px solid var(--accent);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--glow-soft);
+  transition: 0.3s ease;
+}
+
+.articles-list li:hover {
+  background: rgba(62, 192, 239, 0.15);
+  box-shadow: 0 0 20px rgba(62, 192, 239, 0.6);
+  transform: translateY(-4px);
+}
+
+.articles-list a {
+  display: inline;
+  margin-top: 0;
+  color: transparent;
+  text-shadow: none;
+  font-size: 0;
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+.articles-list a::after {
+  content: " DOI →";
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 8px rgba(62, 192, 239, 0.35);
+}
+
+.articles-list a[data-link-label="URL"]::after {
+  content: " URL →";
+}
+
+.articles-list a:hover::after,
+.articles-list a:focus-visible::after {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sidebar-widget .index-link {
+  display: inline;
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 8px rgba(62, 192, 239, 0.35);
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+.sidebar-widget .index-link::after {
+  content: "";
+}
+
+.sidebar-widget .index-link[data-link-label="URL"]::after {
+  content: "";
+}
+
+.sidebar-widget .index-link:hover,
+.sidebar-widget .index-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ================= BOOKS ================= */
@@ -231,14 +623,15 @@ a:focus-visible {
 
 .book-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 .book-list .book-entry {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
   padding: 1.25rem;
 
   background: rgba(10,22,36,0.6);
@@ -249,6 +642,10 @@ a:focus-visible {
   transition: 0.25s ease;
 }
 
+.book-list .book-entry:only-child {
+  grid-column: auto;
+}
+
 .book-list .book-entry:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
@@ -256,7 +653,8 @@ a:focus-visible {
 }
 
 .book-list .book-entry img {
-  width: 100%;
+  width: 200px;
+  height: auto;
   border-radius: 14px;
 }
 
@@ -270,19 +668,58 @@ a:focus-visible {
   margin-bottom: 1rem;
 }
 
-/* ================= HIGHLIGHTS ================= */
+/* ================= RECOGNITION ================= */
 
-.highlights-list {
-  list-style: none;
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
+.recognition-section {
+  text-align: center;
 }
 
-.highlights-list li {
-  padding: 0.75rem 1rem;
+.recognition-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recognition-entry img {
+  width: min(100%, 640px);
   border-radius: 12px;
-  background: rgba(62,192,239,0.08);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.recognition-info {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ================= HIGHLIGHTS ================= */
+
+.highlights-section {
+  display: flex;
+  flex-direction: column;  /* Alinea los elementos en vertical */
+  align-items: center;      /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente si la sección tiene altura */
+  text-align: center;       /* Centra las líneas de texto */
+  gap: 1.5rem;             /* Espacio entre la imagen y el texto */
+  padding: 2rem;
+  width: 100%;             /* Asegura que ocupe todo el ancho disponible */
+}
+
+.congress-info h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent);    /* Mantiene tu estilo de color azul */
+}
+
+.congress-description {
+  max-width: 500px;        /* Evita que el texto se estire demasiado en pantallas grandes */
+  margin: 0 auto;          /* Refuerza el centrado del bloque de texto */
+}
+
+/* Ajuste opcional para la imagen */
+.highlights-section img {
+  border-radius: 12px;     /* Para que combine con el resto de tu diseño */
+  box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
 
@@ -402,6 +839,36 @@ a:focus-visible {
   }
 }
 
+/* Contador de vistas */
+.view-counter {
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, rgba(62, 192, 239, 0.15), rgba(62, 192, 239, 0.05));
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(62, 192, 239, 0.3);
+  text-align: center;
+}
+
+.counter-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(62, 192, 239, 0.8);
+  margin-bottom: 0.5rem;
+  font-family: 'Courier Prime', monospace;
+  letter-spacing: 2px;
+}
+
+.view-counter p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
 @media (max-width: 720px) {
   .book-list {
     grid-template-columns: 1fr;
@@ -413,7 +880,102 @@ a:focus-visible {
   }
 
   .intro-body,
-  .latest-book .book-entry {
+  .latest-book .book-entry,
+  .book-list .book-entry {
     grid-template-columns: 1fr;
   }
 }
+/* ── Hobbies zigzag grid ── only affects hobbies.html ── */
+.hobby-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hobby-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* This class flips the row so image goes to the right */
+.hobby-item--reverse {
+  flex-direction: row-reverse;
+}
+
+.hobby-img {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;   /* ← flat bottom now that figure handles it */
+  border: 1px solid var(--border);
+  border-bottom: none;             /* ← figcaption takes over the bottom border */
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.hobby-img:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 16px 34px rgba(62, 192, 239, 0.35);
+  filter: brightness(1.06);
+}
+
+/* ← NEW */
+.hobby-figure {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 320px;
+}
+
+.hobby-figure .hobby-img {
+  width: 100%;
+}
+
+.hobby-figure figcaption {
+  background: rgba(62, 192, 239, 0.2);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 1rem 1.2rem;
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-align: center;
+  font-family: 'Allura', cursive;
+  font-weight: 500;
+  line-height: 1.5;
+}
+/* ← END NEW */
+
+.hobby-text {
+  flex: 1;
+}
+
+.hobby-text h2 {
+  color: var(--ink);
+  text-shadow: 0 0 4px rgba(62,192,239,0.25);
+  margin-bottom: 0.75rem;
+}
+
+.hobby-text p {
+  color: var(--ink);
+  font-size: 1.5em;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .hobby-item,
+  .hobby-item--reverse {
+    flex-direction: column;
+  }
+
+  .hobby-figure {
+    width: 100%;
+  }
+
+  .hobby-figure .hobby-img {
+    height: 220px;
+  }
+}
+/* ──────────────────────────────────────────────────── */

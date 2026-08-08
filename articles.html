@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,9 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="stylec.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
 
 <body>
@@ -20,9 +24,9 @@
         <span class="name-logo">
           <img src="assets/logo.jpeg" alt="Logo">
         </span>
-        <span>Pedro Pablo Cárdenas Alzate</span>
+        <span>Pedro Pablo Cárdenas Alzate, Ph.D.</span>
       </h1>
-      <p class="subtitle">Docente · Investigador · Universidad Tecnológica de Pereira</p>
+      <p class="subtitle">Profesor · Investigador · Universidad Tecnológica de Pereira</p>
     </div>
     <button class="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false" data-sidebar-toggle>
       Menu
@@ -31,14 +35,446 @@
 
   <div class="page-layout">
     <main class="main-content">
-      <section class="info-section">
-        <h2>Artículos</h2>
-        <p>Listado de publicaciones recientes y enlaces a revistas.</p>
-      </section>
+<section class="info-section">
+  <h2>Artículos</h2>
+  <ul class="articles-list">
+    <li>
+      <strong>An Approach to the Stability of Systems of Differential Equations of Fractional Order with Time Delay</strong> (2023).
+      Hunan Daxue Xuebao Journal of Hunan University Natural Sciences.
+      <a href="https://doi.org/10.55463/issn.1674-2974.50.6.1" target="_blank" rel="noopener noreferrer">https://doi.org/10.55463/issn.1674-2974.50.6.1</a>.
+    </li>
+    <li>
+      <strong>WKB Method for Some Nonlinear Equations: A Special Case</strong> (2023).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.58.4.66" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.58.4.66</a>.
+    </li>
+    <li>
+      <strong>On the Stability of Systems of Nonlinear Ordinary Differential Equations of Fractional Order</strong> (2023).
+      Hunan Daxue Xuebao Journal of Hunan University Natural Sciences.
+      <a href="https://doi.org/10.55463/issn.1674-2974.50.7.7" target="_blank" rel="noopener noreferrer">https://doi.org/10.55463/issn.1674-2974.50.7.7</a>.
+    </li>
+    <li>
+      <strong>Topology of Metric Spaces: A Look Through GeoGebra</strong> (2023).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.58.3.12" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.58.3.12</a>.
+    </li>
+    <li>
+      <strong>The General Kovalevskaya Theorem for a Cauchy Problem</strong> (2023).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.58.3.61" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.58.3.61</a>.
+    </li>
+    <li>
+      <strong>On the Noncharacteristicity of a Cauchy Surface and Applications</strong> (2023).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.58.3.62" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.58.3.62</a>.
+    </li>
+    <li>
+      <strong>On the Dynamics of the Hodgkin-Huxley Neural Model: A Stable Analysis Using Hurwitz Polynomials</strong> (2022).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.57.6.74" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.57.6.74</a>.
+    </li>
+    <li>
+      <strong>An Approach to the Stability of the Gause-Lotka-Volterra Competition Ecological Model Using the Routh-Hurwitz Criterion</strong> (2022).
+      Journal of Southwest Jiaotong University.
+      <a href="https://doi.org/10.35741/issn.0258-2724.57.5.21" target="_blank" rel="noopener noreferrer">https://doi.org/10.35741/issn.0258-2724.57.5.21</a>.
+    </li>
+    <li>
+      <strong>A Note on the Stability of a Modified Lotka-Volterra Model using Hurwitz Polynomials</strong> (2021).
+      WSEAS Transactions on Mathematics.
+      <a href="https://doi.org/10.37394/23206.2021.20.44" target="_blank" rel="noopener noreferrer">https://doi.org/10.37394/23206.2021.20.44</a>.
+    </li>
+    <li>
+      <strong>Long-Term Transmission System Expansion Planning Using Valid Inequalities</strong> (2020).
+      International Journal of Engineering Research and Technology.
+      <a href="https://doi.org/10.37624/IJERT/13.10.2020.2768-2777" target="_blank" rel="noopener noreferrer">https://doi.org/10.37624/IJERT/13.10.2020.2768-2777</a>.
+    </li>
+    <li>
+      <strong>A note on the dynamics of an HIV infection model using Padé approximants</strong> (2020).
+      WSEAS Transactions on Mathematics.
+      <a href="https://doi.org/10.37394/23206.2020.19.47" target="_blank" rel="noopener noreferrer">https://doi.org/10.37394/23206.2020.19.47</a>.
+    </li>
+    <li>
+      <strong>Qualitative Behavior of AIDS in a Homosexual Population</strong> (2019).
+      Modern Applied Science.
+      <a href="https://doi.org/10.5539/mas.v14n1p1" target="_blank" rel="noopener noreferrer">https://doi.org/10.5539/mas.v14n1p1</a>.
+    </li>
+    <li>
+      <strong>A Special Case of a Mathematical Model for Ecological Community: A Predator-Prey System</strong> (2019).
+      Modern Applied Science.
+      <a href="https://doi.org/10.5539/mas.v13n12p75" target="_blank" rel="noopener noreferrer">https://doi.org/10.5539/mas.v13n12p75</a>.
+    </li>
+    <li>
+      <strong>Estimation of multiple parameters using algorithms expectation maximization</strong> (2019).
+      Journal of Physics Conference Series.
+      <a href="https://doi.org/10.1088/1742-6596/1386/1/012108" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/1742-6596/1386/1/012108</a>.
+    </li>
+    <li>
+      <strong>Bifurcation analysis of the threshold of a solid-state laser</strong> (2019).
+      Journal of Physics Conference Series.
+      <a href="https://doi.org/10.1088/1742-6596/1386/1/012109" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/1742-6596/1386/1/012109</a>.
+    </li>
+    <li>
+      <strong>Bifurcation analysis field potential in isotropic materials defined by semi-spherical layers using finite elements</strong> (2019).
+      Journal of Physics Conference Series.
+      <a href="https://doi.org/10.1088/1742-6596/1386/1/012110" target="_blank" rel="noopener noreferrer">https://doi.org/10.1088/1742-6596/1386/1/012110</a>.
+    </li>
+    <li>
+      <strong>A note on the exponents of Lyapunov for a system with unknown dynamic</strong> (2018).
+      Indian Journal of Science and Technology.
+      <a href="https://doi.org/10.17485/ijst/2018/v11i21/123003" target="_blank" rel="noopener noreferrer">https://doi.org/10.17485/ijst/2018/v11i21/123003</a>.
+    </li>
+    <li>
+      <strong>On numerical simulation of the Black-Scholes model using the non-linear Adomian method</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.85245" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.85245</a>.
+    </li>
+    <li>
+      <strong>A Survey of Long Term Transmission Expansion Planning Using Cycles</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.810562" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.810562</a>.
+    </li>
+    <li>
+      <strong>Inequalities from mortality related to Infectious according to socioeconomic indicators in Risaralda Colombia</strong> (2018).
+      International Journal of Chemtech Research.
+      <a href="https://doi.org/10.20902/IJCTR.2018.111131" target="_blank" rel="noopener noreferrer">https://doi.org/10.20902/IJCTR.2018.111131</a>.
+    </li>
+    <li>
+      <strong>Stability Analysis Through the Direct Method of Lyapunov in the Oscillation of a Synchronous Machine</strong> (2018).
+      Modern Applied Science.
+      <a href="https://doi.org/10.5539/mas.v12n7p166" target="_blank" rel="noopener noreferrer">https://doi.org/10.5539/mas.v12n7p166</a>.
+    </li>
+    <li>
+      <strong>A Note on the Implementation of the Finite Element to Solve Differential Equations</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.84149" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.84149</a>.
+    </li>
+    <li>
+      <strong>Solution of the Maxwell's equations of the electromagnetic field in two dimensions by means of the finite difference method in the time domain (FDTD)</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.83114" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.83114</a>.
+    </li>
+    <li>
+      <strong>Perspectives in the development of topological notions using soap bubbles</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.89521" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.89521</a>.
+    </li>
+    <li>
+      <strong>Optimum Control Using Finite Time Quadratic Linear Regulator</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.89516" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.89516</a>.
+    </li>
+    <li>
+      <strong>A Survey of Azimuthal angle and eigenvalues of the Laplace equation</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.89510" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.89510</a>.
+    </li>
+    <li>
+      <strong>Qualitative Analysis of Bifurcations and Its Application in the Diode-Tunnel Circuit</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.89518" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.89518</a>.
+    </li>
+    <li>
+      <strong>A note on the homogeneous Neumann boundary condition</strong> (2018).
+      Applied Mathematical Sciences.
+      <a href="https://doi.org/10.12988/ams.2018.89130" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ams.2018.89130</a>.
+    </li>
+    <li>
+      <strong>A survey of Joukowski airfoil and Von Karman vortex street</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.810540" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.810540</a>.
+    </li>
+    <li>
+      <strong>Application of finite elements in engineering as a solution to PDEs present in electromagnetism</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.8116" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.8116</a>.
+    </li>
+    <li>
+      <strong>Planning the Expansion of Long-Term Transmission Networks Using a Cycle-Based Formulation</strong> (2018).
+      Modern Applied Science.
+      <a href="https://doi.org/10.5539/mas.v13n1p237" target="_blank" rel="noopener noreferrer">https://doi.org/10.5539/mas.v13n1p237</a>.
+    </li>
+    <li>
+      <strong>Application of Bézier Curves to Obtain a Band of Certainty with Noise Contaminated Data</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.810538" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.810538</a>.
+    </li>
+    <li>
+      <strong>Some Biomathematical Models Applying the Adomian Method</strong> (2018).
+      International Journal of Chemtech Research.
+      <a href="https://doi.org/10.20902/IJCTR.2018.110729" target="_blank" rel="noopener noreferrer">https://doi.org/10.20902/IJCTR.2018.110729</a>.
+    </li>
+    <li>
+      <strong>Chaos control for the Lorenz system</strong> (2018).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2018.8413" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2018.8413</a>.
+    </li>
+    <li>
+      <strong>Magnetic Field of Two Laminar Conductors Around a Ferromagnetic Material</strong> (2018).
+      Applied Mathematical Sciences.
+      <a href="https://doi.org/10.12988/ams.2018.8459" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ams.2018.8459</a>.
+    </li>
+    <li>
+      <strong>A Note on the Variational Formulation of PDEs and Solution by Finite Elements</strong> (2018).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2018.8412" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2018.8412</a>.
+    </li>
+    <li>
+      <strong>Prediction of a Time Series Using Regression by Vector Support Machines</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.89517" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.89517</a>.
+    </li>
+    <li>
+      <strong>Parameterization of BH curves by means of PSO</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.85235" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.85235</a>.
+    </li>
+    <li>
+      <strong>Lyapunov exponents analysis and phase space reconstruction to Chua's circuit</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.84159" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.84159</a>.
+    </li>
+    <li>
+      <strong>Analysis of economic and social indicators through the Principal Components Analysis</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.8120" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.8120</a>.
+    </li>
+    <li>
+      <strong>Linear search optimization through the Armijo Rule Method</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.8121" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.8121</a>.
+    </li>
+    <li>
+      <strong>Minimum Solution of a Function Using Particle Cluster Optimization</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.8115" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.8115</a>.
+    </li>
+    <li>
+      <strong>A Note on the Construction and Numerical Solution of the Heat Equation</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.85234" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.85234</a>.
+    </li>
+    <li>
+      <strong>A Note About Properties of Wave Maps</strong> (2018).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2018.8113" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2018.8113</a>.
+    </li>
+    <li>
+      <strong>An Iterative Method for Solving Cubic Nonlinear Schrodinger Equation</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.710141" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.710141</a>.
+    </li>
+    <li>
+      <strong>Solution of the Problem of Cost Optimization by Using Metaheuristic Technique and Method of Optimization with Restrictions</strong> (2017).
+      Applied Mathematical Sciences.
+      <a href="https://doi.org/10.12988/ams.2017.710313" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ams.2017.710313</a>.
+    </li>
+    <li>
+      <strong>Comparison of the Conjugate Gradient Methods of Liu-Storey and Dai-Yuan</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.711189" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.711189</a>.
+    </li>
+    <li>
+      <strong>Probabilistic Load Flow with Load Estimation Using Time Series Techniques and Neural Networks</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.710132" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.710132</a>.
+    </li>
+    <li>
+      <strong>An Iterative Method for Solving Delay Differential Equations Applied to Biological Models</strong> (2017).
+      Applied Mathematical Sciences.
+      <a href="https://doi.org/10.12988/ams.2017.7399" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ams.2017.7399</a>.
+    </li>
+    <li>
+      <strong>Critical Points at Infinity for the Chen-Wang System</strong> (2017).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2017.71257" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2017.71257</a>.
+    </li>
+    <li>
+      <strong>On the Coercive Functions and Minimizers</strong> (2017).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2017.71154" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2017.71154</a>.
+    </li>
+    <li>
+      <strong>Solution of Nonlinear Equation Representing a Generalization of the Black-Scholes Model Using ADM</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.7760" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.7760</a>.
+    </li>
+    <li>
+      <strong>Numerical Solution of the Laplace Equation: Electrostatic Potential</strong> (2017).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2017.71155" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2017.71155</a>.
+    </li>
+    <li>
+      <strong>An Iterative Method for Solving Two Special Cases of Nonlinear PDEs</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.7651" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.7651</a>.
+    </li>
+    <li>
+      <strong>Classification of levels and monthly flows for hydraulic Affluent through Kmeans</strong> (2017).
+      Contemporary Engineering Sciences.
+      <a href="https://doi.org/10.12988/ces.2017.711188" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ces.2017.711188</a>.
+    </li>
+    <li>
+      <strong>On a periodic problem using variational calculus</strong> (2017).
+      Advanced Studies in Theoretical Physics.
+      <a href="https://doi.org/10.12988/astp.2017.71156" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/astp.2017.71156</a>.
+    </li>
+    <li>
+      <strong>The Zhou's Method for Solving the Euler Equidimensional Equation</strong> (2016).
+      Applied Mathematics.
+      <a href="https://doi.org/10.4236/am.2016.717172" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/am.2016.717172</a>.
+    </li>
+    <li>
+      <strong>A note on Lyapunov constants of polynomial systems</strong> (2016).
+      Applied Mathematical Sciences.
+      <a href="https://doi.org/10.12988/ams.2016.69249" target="_blank" rel="noopener noreferrer">https://doi.org/10.12988/ams.2016.69249</a>.
+    </li>
+    <li>
+      <strong>A Special Case on the Stability and Accuracy for the 1D Heat Equation Using 3-Level and 0-Schemes</strong> (2015).
+      Applied Mathematics.
+      <a href="https://doi.org/10.4236/am.2015.63045" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/am.2015.63045</a>.
+    </li>
+    <li>
+      <strong>A Special Case of Variational Formulation for Two-Point Boundary Value Problem in L2(Ω)</strong> (2015).
+      Applied Mathematics.
+      <a href="https://doi.org/10.4236/am.2015.64065" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/am.2015.64065</a>.
+    </li>
+    <li>
+      <strong>A Special Case of Fourier Spectral Solution for Constant and Variable Coefficient Poisson Equations in 1D and 2D</strong> (2015).
+      World Applied Sciences Journal.
+      <a href="https://www.idosi.org/wasj/wasj33(4)15/16.pdf" target="_blank" rel="noopener noreferrer">https://www.idosi.org/wasj/wasj33(4)15/16.pdf</a>.
+    </li>
+    <li>
+      <strong>A two-point boundary value problem by using a mixed finite element method</strong> (2015).
+      Applied Mathematics.
+      <a href="https://doi.org/10.4236/am.2015.612177" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/am.2015.612177</a>.
+    </li>
+    <li>
+      <strong>Method for Solving Two Special Cases of Lane-Emden Type Equation</strong> (2014).
+      American Journal of Computational Mathematics.
+      <a href="https://doi.org/10.4236/ajcm.2014.43021" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/ajcm.2014.43021</a>.
+    </li>
+    <li>
+      <strong>A survey of the implementation of numerical schemes for the heat equation using forward Euler in Time</strong> (2014).
+      Journal of Applied Mathematics.
+      <a href="https://doi.org/10.4236/jamp.2014.213135" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/jamp.2014.213135</a>.
+    </li>
+    <li>
+      <strong>A Survey of the Implementation of Numerical Schemes for Linear Advection Equation</strong> (2014).
+      Advances In Pure Mathematics.
+      <a href="https://doi.org/10.4236/apm.2014.48052" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/apm.2014.48052</a>.
+    </li>
+    <li>
+      <strong>The Zhou's Method for Solving the White-Dwarfs Equation</strong> (2013).
+      Applied Mathematics.
+      <a href="https://doi.org/10.4236/am.2013.410A3005" target="_blank" rel="noopener noreferrer">https://doi.org/10.4236/am.2013.410A3005</a>.
+    </li>
+    <li>
+      <strong>Existence of solutions for some nonlinear beam equations</strong> (2005).
+      Portugaliae Mathematica.
+      <a href="https://emis.de/ft/52845" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://emis.de/ft/52845</a>.
+    </li>
 
-      <section class="info-section">
-        <h2>En prensa</h2>
-        <p>Próximas publicaciones y versiones preliminares.</p>
+          <li>
+            <strong>Tiempo de retorno para ecuaciones tipo Liénard</strong> (2011).
+            Scientia Et Technica. Autores: Ernesto Bonilla, Pedro Pablo Cárdenas Álzate, Alexander Gutiérrez Gutiérrez.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1293" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1293</a>.
+          </li>
+          <li>
+            <strong>Un enfoque de la solución de problemas en la enseñanza de la programación funcional</strong> (2011).
+            Scientia Et Technica. Autores: Fernando Mesa, Pedro Pablo Cárdenas Alzate, Carlos Alberto Rodríguez Varela.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/501" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/501</a>.
+          </li>
+          <li>
+            <strong>Aplicación del teorema de Leray – Schauder a un problema de borde</strong> (2012).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas Alzate, Luz María Rojas Duque, José Gerardo Cardona Toro.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1675" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1675</a>.
+          </li>
+          <li>
+            <strong>Una nota sobre los problemas de punto de silla en la mecánica de sólidos</strong> (2012).
+            Scientia Et Technica. Autores: Fernando Mesa, Pedro Pablo Cárdenas, Alexander Gutiérrez G.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/207" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/207</a>.
+          </li>
+          <li>
+            <strong>Soluciones periódicas de la ecuación del péndulo forzado con fricción por métodos topológicos</strong> (2010).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Tiberio Trejos Aricapa, Fernando Mesa.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1829" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/1829</a>.
+          </li>
+          <li>
+            <strong>Algunos modelos matemáticos en finanzas</strong> (2010).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Fernando Mesa, Jhon Jairo León Salazar.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/349" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/349</a>.
+          </li>
+          <li>
+            <strong>Aplicación del teorema de LERAY - SCHAUDER a un problema de contorno</strong> (2010).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Jhon Jairo León Salazar, Fernando Mesa.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/345" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/345</a>.
+          </li>
+          <li>
+            <strong>Una aplicación del grado de coincidencia a un problema periódico</strong> (2010).
+            Scientia Et Technica. Autores: Edgar Alirio Valencia Angulo, Pedro Pablo Cárdenas A., Alexander Gutiérrez G.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/271" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/271</a>.
+          </li>
+          <li>
+            <strong>Algunos resultados de operadores lineales continuos</strong> (2009).
+            Scientia Et Technica. Autores: Edgar Alirio Valencia, Fernando Mesa, Pedro Pablo Cárdenas Alzate.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2325" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2325</a>.
+          </li>
+          <li>
+            <strong>Algunos resultados sobre martingalas discretas finitas</strong> (2009).
+            Scientia Et Technica. Autores: Edgar Alirio Valencia Angulo, Fernando Mesa, Pedro Pablo Cárdenas Alzate.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2693" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2693</a>.
+          </li>
+          <li>
+            <strong>Existencia de solución de un problema de contorno aplicando el método de super y sub-soluciones</strong> (2009).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Fernando Mesa, Jairo Alberto Mendoza Vargas.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3101" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3101</a>.
+          </li>
+          <li>
+            <strong>Una nota sobre el teorema de punto fijo de Banach en la solución de sistemas de ecuaciones lineales algebraicas</strong> (2009).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Alexander Gutiérrez G.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3103" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3103</a>.
+          </li>
+          <li>
+            <strong>Modelación matemática en la valuación de opciones sobre acciones</strong> (2009).
+            Scientia Et Technica. Autores: Jhon Jairo León S., Fernando Mesa, Pedro Pablo Cárdenas A.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2939" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/2939</a>.
+          </li>
+          <li>
+            <strong>Resolución de un problema de contorno por métodos topológicos</strong> (2008).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Carlos Alberto Rodríguez Varela, Docier Marino Ceballos.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3279" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3279</a>.
+          </li>
+          <li>
+            <strong>Modificación del juego del hex y su aplicación en la prueba del teorema del punto fijo de Brouwer</strong> (2008).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Fernando Mesa, Francisco J. Cardona G.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3799" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3799</a>.
+          </li>
+          <li>
+            <strong>Solución numérica de un problema diferencial definido sobre un dominio heterogéneo 1D y 2D</strong> (2008).
+            Scientia Et Technica. Autores: Alex R. Sepúlveda C., Pedro Pablo Cárdenas A.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3801" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/3801</a>.
+          </li>
+          <li>
+            <strong>Aplicación del teorema del punto fijo de Banach en la resolución de la ecuación del péndulo forzado</strong> (2007).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Maryluz Largo A., Alexander Sepúlveda C.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/4179" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/4179</a>.
+          </li>
+          <li>
+            <strong>LA ENSEÑANZA DE LAS MATEMÁTICAS: UN RETO</strong> (2007).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Fernando Mesa, Robin Mario Escobar.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/5471" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/5471</a>.
+          </li>
+          <li>
+            <strong>El papel de la historia de la matemática en el proceso formativo del estudiante</strong> (2006).
+            Scientia Et Technica. Autores: Pedro Pablo Cárdenas A., Fernando Mesa, Oscar Fernández S.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/6341" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/6341</a>.
+          </li>
+          <li>
+            <strong>René Descartes, un nuevo método y una nueva ciencia</strong> (2006).
+            Scientia Et Technica. Autores: Oscar Fernández S., Pedro Pablo Cárdenas A., Fernando Mesa.
+            <a href="https://revistas.utp.edu.co/index.php/revistaciencia/article/view/6331" target="_blank" rel="noopener noreferrer" data-link-label="URL">https://revistas.utp.edu.co/index.php/revistaciencia/article/view/6331</a>.
+          </li>
+        </ul>
       </section>
     </main>
 
@@ -52,21 +488,45 @@
           <li><a href="articles.html" class="active">Artículos</a></li>
           <li><a href="books.html">Libros</a></li>
           <li><a href="teaching.html">Docencia</a></li>
+          <li><a href="hobbies.html">Hobbies y más</a></li>
         </ul>
       </nav>
 
       <section class="sidebar-widget">
         <h3>Indices</h3>
-        <p>Scopus, Scholar y repositorios institucionales.</p>
+        <p><a class="index-link" href="https://repositorio.utp.edu.co/search?spc.page=1&query=alzate&f.author=C%C3%A1rdenas%20Alzate,%20Pedro%20Pablo,equals" target="_blank" rel="noopener noreferrer" data-link-label="Repositorio UTP">Repositorio UTP -></a></p>
+        <p><a class="index-link" href="https://www.scopus.com/authid/detail.uri?authorId=23481108600" target="_blank" rel="noopener noreferrer" data-link-label="Scopus">Scopus -></a></p>
       </section>
 
       <section class="sidebar-widget">
         <h3>Contacto</h3>
         <p>
           Correo: ppablo@utp.edu.co<br />
-          Oficina: Edificio A · Piso 2<br />
-          Telefono: +57 300 000 0000
+          Oficina: Edificio 1 - 1B-113 <br />
+		      Departamento de Matemáticas <br />
+		      Universidad Tecnológica de Pereira <br />
         </p>
+        <p>Redes sociales:</p>
+          <div class="social-icons">
+            <a href="https://x.com/pcardenasalzate" target="_blank" rel="noopener noreferrer">
+              <img src="assets/twitter.png" alt="X" width="48" height="48">
+            </a>
+
+            <a href="https://www.instagram.com/pepa0531" target="_blank" rel="noopener noreferrer">
+              <img src="assets/instagramb.png" alt="Instagram" width="48" height="48">
+            </a>
+
+            <a href="https://www.tiktok.com/@pepa0531" target="_blank" rel="noopener noreferrer">
+              <img src="assets/tiktokb.jpg" alt="TikTok" width="48" height="48">
+            </a>
+          </div>
+
+      <section class="sidebar-widget">
+        <h3>Vistas</h3>
+        <div class="view-counter">
+          <div class="counter-number" id="view-count">—</div>
+          <p>visitantes</p>
+        </div>
       </section>
     </aside>
   </div>
@@ -74,28 +534,22 @@
   <div class="sidebar-scrim" data-scrim aria-hidden="true"></div>
 
   <footer class="site-footer">
-    <p>©2026 Daniel Alejandro Henao, Miguel Angel Arias Ochoa</p>
+    <p>© 2026 Pedro Pablo Cárdenas Alzate</p>
+    <p>Designed and developed by <strong>Miguel Ángel Arias</strong> & <strong>Daniel Alejandro Henao</strong></p>
   </footer>
 
+  <script src="firebase.js"></script>
   <script>
-    const toggleButton = document.querySelector("[data-sidebar-toggle]");
-    const scrim = document.querySelector("[data-scrim]");
-    const body = document.body;
-
-    const setSidebarOpen = (open) => {
-      body.dataset.sidebarOpen = open ? "true" : "false";
-      toggleButton.setAttribute("aria-expanded", String(open));
-    };
-
-    toggleButton.addEventListener("click", () => {
-      const isOpen = body.dataset.sidebarOpen === "true";
-      setSidebarOpen(!isOpen);
+    document.addEventListener('contextmenu', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
     });
-
-    scrim.addEventListener("click", () => setSidebarOpen(false));
-
-    document.querySelectorAll(".side-nav a").forEach((link) => {
-      link.addEventListener("click", () => setSidebarOpen(false));
+    
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
     });
   </script>
 </body>
